@@ -1,0 +1,46 @@
+// Max width media queries
+@mixin maxSm {
+	@media (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin maxMd {
+	@media (max-width: 991px) {
+		@content;
+	}
+}
+
+@mixin maxLg {
+	@media (max-width: 1199px) {
+		@content;
+	}
+}
+
+// Min width media queries
+@mixin minSm {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin minMd {
+	@media (min-width: 992px) {
+		@content;
+	}
+}
+
+@mixin minLg {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+
+// Overlay
+@mixin overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
