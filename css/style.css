@@ -1,0 +1,65 @@
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Mobile Screens */
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+}
+/* Tablet screens */
+@media (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+/* Medium screens */
+@media (min-width: 992px) {
+  .container {
+    width: 992px;
+  }
+}
+/* Large screens */
+@media (min-width: 992px) {
+  .container {
+    width: 1200px;
+  }
+}
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: roboto, arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+}
+
+img {
+  width: 100%;
+  margin-bottom: -5px;
+}/*# sourceMappingURL=style.css.map */
