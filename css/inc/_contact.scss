@@ -1,0 +1,86 @@
+.contact {
+	background-color: $secondaryColor;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+
+		.section-title {
+			&::before,
+			&::after {
+				background-color: white;
+			}
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			max-width: 600px;
+			width: 100%;
+			// border: 2px solid $mainColor;
+
+			.input-box {
+				position: relative;
+
+				input {
+					background-color: white;
+					padding: 1rem;
+					border: 2px solid $mainColor;
+					outline: none;
+					width: 100%;
+					font-size: 1rem;
+
+					&:focus + .placeholder {
+						top: 0;
+						background-color: white;
+						border: 2px solid $mainColor;
+						padding: 0.25rem 0.5rem;
+					}
+				}
+
+				.placeholder {
+					position: absolute;
+					top: 50%;
+					left: 1rem;
+					transform: translateY(-50%);
+					border: 2px solid white;
+					transition: $mainTransition;
+				}
+			}
+
+			button {
+				background-color: white;
+				padding: 1rem;
+				border: 2px solid $mainColor;
+				transition: $mainTransition;
+				outline: none;
+				position: relative;
+				z-index: 1;
+				overflow: hidden;
+			}
+
+			button {
+				cursor: pointer;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: -100%;
+					width: 100%;
+					height: 100%;
+					background-color: $secondaryColor;
+					z-index: -1;
+					transition: $mainTransition;
+				}
+
+				&:hover::before {
+					left: 0;
+				}
+			}
+		}
+	}
+}

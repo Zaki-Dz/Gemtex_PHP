@@ -1,0 +1,59 @@
+.landing {
+	height: 100vh;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #0005;
+		z-index: 1;
+	}
+
+	.slider {
+		display: flex;
+		height: 100%;
+		background-color: red;
+		overflow: hidden;
+		position: relative;
+
+		img {
+			min-width: 100vw;
+			animation: slider 30s infinite;
+			object-fit: cover;
+		}
+	}
+}
+
+@keyframes slider {
+	0% {
+		transform: translateX(0);
+	}
+
+	25% {
+		transform: translateX(0);
+	}
+
+	30% {
+		transform: translateX(-100%);
+	}
+
+	55% {
+		transform: translateX(-100%);
+	}
+
+	60% {
+		transform: translateX(-200%);
+	}
+
+	90% {
+		transform: translateX(-200%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}

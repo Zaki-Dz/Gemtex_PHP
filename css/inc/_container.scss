@@ -1,32 +1,32 @@
 .container {
 	margin: 0 auto;
-	padding: 0 20px;
 }
 
 /* Mobile Screens */
 @include maxSm {
 	.container {
 		width: 100%;
+		padding: 0 2rem;
 	}
 }
 
 /* Tablet screens */
 @include minSm {
 	.container {
-		width: 768px;
+		width: 728px;
 	}
 }
 
 /* Medium screens */
 @include minMd {
 	.container {
-		width: 992px;
+		width: 952px;
 	}
 }
 
 /* Large screens */
-@include minMd {
+@include minLg {
 	.container {
-		width: 1200px;
+		width: 1160px;
 	}
 }

@@ -1,0 +1,109 @@
+body {
+	min-height: 10000px;
+}
+
+header {
+	padding-block: 0.5rem;
+	z-index: 10;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: white;
+	// backdrop-filter: blur(0.25rem);
+	transition: $mainTransition;
+	box-shadow: 0 0 1rem;
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.logo {
+			max-width: 120px;
+			z-index: 10;
+		}
+
+		.nav-btn {
+			display: none;
+			z-index: 10;
+			padding: 0.5rem;
+			border-radius: 0.25rem;
+			border: 2px solid;
+			cursor: pointer;
+
+			@include maxSm {
+				display: block;
+			}
+		}
+
+		nav {
+			transition: $mainTransition;
+
+			ul {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+
+				li {
+					border: 2px solid $mainColor;
+					padding: 0.5rem;
+					position: relative;
+					z-index: 1;
+					overflow: hidden;
+
+					@include maxMd {
+						font-size: 0.8rem;
+					}
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: -100%;
+						width: 100%;
+						height: 100%;
+						background-color: $secondaryColor;
+						z-index: -1;
+						transition: $mainTransition;
+					}
+
+					&:hover::before {
+						left: 0;
+					}
+				}
+			}
+
+			@include maxSm {
+				position: absolute;
+				top: 100px;
+				right: 0;
+				padding-top: 100px;
+				width: 100%;
+				background-color: white;
+				opacity: 0;
+				pointer-events: none;
+				box-shadow: 0 1rem 1rem #0005;
+
+				&.active {
+					padding-top: 0 !important;
+					opacity: 1 !important;
+					pointer-events: all !important;
+					top: 0 !important;
+					padding-top: 100px !important;
+				}
+
+				ul {
+					flex-direction: column;
+					min-width: 300px;
+					align-items: stretch;
+					padding: 1rem;
+
+					li {
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}
