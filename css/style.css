@@ -167,8 +167,10 @@ header .container nav ul li:hover::before {
   height: 100vh;
   padding: 2rem;
   padding-top: 100px;
+  background-color: #fa0;
 }
 .landing .slider {
+  border: 5px solid white;
   display: flex;
   height: 100%;
   overflow: hidden;
@@ -229,11 +231,39 @@ header .container nav ul li:hover::before {
     transform: translateX(0);
   }
 }
+.presentation .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+.presentation .container .content {
+  display: flex;
+  align-items: center;
+}
+.presentation .container .content .text {
+  flex: 1;
+}
+.presentation .container .content .illustration {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+}
+.presentation .container .content .illustration img {
+  max-width: 400px;
+}
+
+.produits {
+  background-color: #fa0;
+}
 .produits .container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: center;
+}
+.produits .container .section-title::before, .produits .container .section-title::after {
+  background-color: white;
 }
 .produits .container .categories {
   display: flex;
@@ -241,6 +271,12 @@ header .container nav ul li:hover::before {
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
+}
+@media (max-width: 767px) {
+  .produits .container .categories .category {
+    min-width: calc(50% - 0.5rem);
+    text-align: center;
+  }
 }
 .produits .container .categories .category {
   border-bottom: 2px solid;
@@ -251,10 +287,10 @@ header .container nav ul li:hover::before {
   transition: 0.3s;
 }
 .produits .container .categories .category.active {
-  color: #fa0;
+  color: white;
 }
 .produits .container .categories .category:hover {
-  color: #fa0;
+  color: white;
 }
 .produits .container .produits-container {
   display: grid;
@@ -264,6 +300,7 @@ header .container nav ul li:hover::before {
 }
 .produits .container .produits-container .produit {
   border: 2px solid #111;
+  background-color: white;
   padding: 1rem;
   position: relative;
   overflow: hidden;
@@ -285,6 +322,29 @@ header .container nav ul li:hover::before {
 }
 .produits .container .produits-container .produit:hover .name {
   bottom: 0;
+}
+
+.partenaires {
+  background-color: white;
+}
+.partenaires .container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.partenaires .container .partenaires-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.partenaires .container .partenaires-container img {
+  width: 200px;
+}
+@media (max-width: 767px) {
+  .partenaires .container .partenaires-container img {
+    width: 50%;
+  }
 }
 
 .contact {
@@ -460,6 +520,12 @@ section {
   z-index: 1;
   text-transform: uppercase;
 }
+@media (max-width: 767px) {
+  .section-title {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
 .section-title::before, .section-title::after {
   content: "";
   position: absolute;
@@ -467,25 +533,28 @@ section {
   transform: translateY(-50%);
   width: 30px;
   height: 30px;
+  border-radius: 50%;
   background-color: #fa0;
   z-index: -1;
   transition: 0.3s;
 }
 .section-title::before {
-  left: -30%;
+  left: -50px;
 }
 .section-title::after {
-  right: -30%;
+  right: -50px;
 }
 .section-title:hover::before {
   left: 0;
   width: 55%;
   height: 100%;
+  border-radius: 0;
 }
 .section-title:hover::after {
   right: 0;
   width: 50%;
   height: 100%;
+  border-radius: 0;
 }
 
 .top-btn {

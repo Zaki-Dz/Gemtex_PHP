@@ -2,8 +2,10 @@
 	height: 100vh;
 	padding: 2rem;
 	padding-top: 100px;
+	background-color: $secondaryColor;
 
 	.slider {
+		border: 5px solid white;
 		display: flex;
 		height: 100%;
 		overflow: hidden;

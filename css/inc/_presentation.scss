@@ -1,2 +1,27 @@
 .presentation {
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 3rem;
+
+		.content {
+			display: flex;
+			align-items: center;
+
+			.text {
+				flex: 1;
+			}
+
+			.illustration {
+				flex: 1;
+				display: flex;
+				justify-content: end;
+
+				img {
+					max-width: 400px;
+				}
+			}
+		}
+	}
 }

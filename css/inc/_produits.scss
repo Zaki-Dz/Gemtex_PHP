@@ -1,9 +1,18 @@
 .produits {
+	background-color: $secondaryColor;
+
 	.container {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
 		align-items: center;
+
+		.section-title {
+			&::before,
+			&::after {
+				background-color: white;
+			}
+		}
 
 		.categories {
 			display: flex;
@@ -11,6 +20,13 @@
 			gap: 1rem;
 			flex-wrap: wrap;
 			margin-bottom: 2rem;
+
+			@include maxSm {
+				.category {
+					min-width: calc(50% - 0.5rem);
+					text-align: center;
+				}
+			}
 
 			.category {
 				border-bottom: 2px solid;
@@ -22,11 +38,11 @@
 
 				&.active {
 					// background-color: $secondaryColor;
-					color: $secondaryColor;
+					color: white;
 				}
 
 				&:hover {
-					color: $secondaryColor;
+					color: white;
 				}
 			}
 		}
@@ -35,12 +51,11 @@
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 			width: 100%;
-			// display: flex;
-			// flex-wrap: wrap;
 			gap: 1rem;
 
 			.produit {
 				border: 2px solid $mainColor;
+				background-color: white;
 				padding: 1rem;
 				position: relative;
 				overflow: hidden;

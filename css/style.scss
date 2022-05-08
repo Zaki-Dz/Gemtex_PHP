@@ -16,8 +16,14 @@
 // import landing
 @import 'inc/landing';
 
+// import presentation
+@import 'inc/presentation';
+
 // import produits
 @import 'inc/produits';
+
+// import partenaires
+@import 'inc/partenaires';
 
 // import contact
 @import 'inc/contact';
@@ -38,6 +44,11 @@ section {
 	z-index: 1;
 	text-transform: uppercase;
 
+	@include maxSm {
+		padding: 0.5rem 1rem;
+		font-size: 0.8rem;
+	}
+
 	&::before,
 	&::after {
 		content: '';
@@ -46,29 +57,32 @@ section {
 		transform: translateY(-50%);
 		width: 30px;
 		height: 30px;
+		border-radius: 50%;
 		background-color: $secondaryColor;
 		z-index: -1;
 		transition: $mainTransition;
 	}
 
 	&::before {
-		left: -30%;
+		left: -50px;
 	}
 
 	&::after {
-		right: -30%;
+		right: -50px;
 	}
 
 	&:hover::before {
 		left: 0;
 		width: 55%;
 		height: 100%;
+		border-radius: 0;
 	}
 
 	&:hover::after {
 		right: 0;
 		width: 50%;
 		height: 100%;
+		border-radius: 0;
 	}
 }
 
