@@ -13,11 +13,17 @@
 			margin-bottom: 2rem;
 
 			.category {
-				border: 2px solid $mainColor;
+				border-bottom: 2px solid $mainColor;
 				padding: 0.5rem;
 				position: relative;
 				overflow: hidden;
 				cursor: pointer;
+
+				&.active {
+					// background-color: $secondaryColor;
+					color: $secondaryColor;
+					border-color: $secondaryColor;
+				}
 
 				&::before {
 					content: '';
@@ -40,6 +46,9 @@
 		.produits-container {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			width: 100%;
+			// display: flex;
+			// flex-wrap: wrap;
 			gap: 1rem;
 
 			.produit {
@@ -47,6 +56,10 @@
 				padding: 1rem;
 				position: relative;
 				overflow: hidden;
+
+				&.hide {
+					display: none;
+				}
 
 				.name {
 					position: absolute;

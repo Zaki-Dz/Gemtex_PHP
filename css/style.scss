@@ -22,6 +22,9 @@
 // import contact
 @import 'inc/contact';
 
+// import footer
+@import 'inc/footer';
+
 section {
 	padding-block: 100px;
 }
@@ -33,6 +36,7 @@ section {
 	width: fit-content;
 	margin-inline: auto;
 	z-index: 1;
+	text-transform: uppercase;
 
 	&::before,
 	&::after {
@@ -72,7 +76,8 @@ section {
 	position: fixed;
 	right: -100px;
 	bottom: 0;
-	background-color: white;
+	backdrop-filter: blur(0.25rem);
+	background-color: #fffa;
 	border: 2px solid $mainColor;
 	padding: 1rem;
 	z-index: 1000;

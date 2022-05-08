@@ -2,7 +2,7 @@ let header = document.querySelector('header')
 let topBtn = document.querySelector('.top-btn')
 
 window.addEventListener('scroll', () => {
-	if (window.scrollY > window.innerHeight) {
+	if (window.scrollY >= window.innerHeight) {
 		header.style.position = 'fixed'
 		topBtn.classList.add('active')
 	} else {
@@ -25,4 +25,30 @@ window.addEventListener('click', e => {
 	} else {
 		nav.classList.remove('active')
 	}
+})
+
+let categories = document.querySelectorAll('.category')
+let products = document.querySelectorAll('.produit')
+
+categories.forEach(category => {
+	category.addEventListener('click', () => {
+		categories.forEach(cat => {
+			cat.classList.remove('active')
+		})
+
+		category.classList.add('active')
+		let categoryData = category.dataset.category
+
+		products.forEach(product => {
+			if (categoryData == 'all') {
+				product.classList.remove('hide')
+			} else {
+				if (product.dataset.category == categoryData) {
+					product.classList.remove('hide')
+				} else {
+					product.classList.add('hide')
+				}
+			}
+		})
+	})
 })

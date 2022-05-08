@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="js/main.js" defer></script>
 	</head>
 
-	<body>
+	<body id="top">
 		<button class="top-btn">
 			<i class="fa-solid fa-arrow-turn-up fa-2x"></i>
 		</button>
@@ -25,11 +25,10 @@
 
 				<nav>
 					<ul>
-						<a href="#"><li>Home</li></a>
-						<a href="#"><li>Presentation</li></a>
-						<a href="#"><li>Products</li></a>
-						<a href="#"><li>Contact</li></a>
-						<a href="#"><li>About us</li></a>
+						<a href="#top"><li>Home</li></a>
+						<a href="#produits"><li>Produits</li></a>
+						<a href="#contact"><li>Contact</li></a>
+						<a href="#about"><li>About us</li></a>
 					</ul>
 				</nav>
 			</div>
@@ -51,40 +50,40 @@
 					</div>
 
 					<ul class="categories">
-						<li class="category">Tous</li>
-						<li class="category">Visage</li>
-						<li class="category">Vetements</li>
-						<li class="category">Gants</li>
-						<li class="category">Chaussures</li>
+						<li class="category active" data-category="all">Tous</li>
+						<li class="category" data-category="visage">Visage</li>
+						<li class="category" data-category="vetements">Vetements</li>
+						<li class="category" data-category="gants">Gants</li>
+						<li class="category" data-category="chaussure">Chaussures</li>
 					</ul>
 
 					<div class="produits-container">
-						<div class="produit">
+						<div class="produit" data-category="visage">
 							<img src="images/casque-lunette.jpg" alt="" />
 							<div class="name">Casque</div>
 						</div>
 
-						<div class="produit">
+						<div class="produit hide" data-category="chaussure">
 							<img src="images/ronjers.png" alt="" />
 							<div class="name">Casque</div>
 						</div>
 
-						<div class="produit">
+						<div class="produit" data-category="chaussure">
 							<img src="images/ronjers.png" alt="" />
 							<div class="name">Casque</div>
 						</div>
 
-						<div class="produit">
+						<div class="produit" data-category="chaussure">
 							<img src="images/ronjers.png" alt="" />
 							<div class="name">Casque</div>
 						</div>
 
-						<div class="produit">
+						<div class="produit" data-category="chaussure">
 							<img src="images/ronjers.png" alt="" />
 							<div class="name">Casque</div>
 						</div>
 
-						<div class="produit">
+						<div class="produit" data-category="chaussure">
 							<img src="images/ronjers.png" alt="" />
 							<div class="name">Casque</div>
 						</div>
@@ -128,6 +127,59 @@
 					</form>
 				</div>
 			</section>
+
+			<footer>
+				<!-- <div class="map">
+						<iframe
+							src="https://maps.google.com/maps?q=36.71066593542828,%202.832889875986137&t=&z=15&ie=UTF8&iwloc=&output=embed"
+							scrolling="no"
+						></iframe
+						><a href="https://2piratebay.org"></a><br /><a
+							href="https://www.embedgooglemap.net"
+							>html google maps</a
+						>
+					</div> -->
+
+				<div class="top">
+					<div class="container">
+						<ul class="links">
+							<a href="#">
+								<li><i class="fa-brands fa-facebook-f"></i></li>
+							</a>
+							<a href="#">
+								<li><i class="fa-brands fa-twitter"></i></li>
+							</a>
+							<a href="#">
+								<li><i class="fa-solid fa-at"></i></li>
+							</a>
+							<a href="#">
+								<li><i class="fa-brands fa-instagram"></i></li>
+							</a>
+						</ul>
+
+						<nav>
+							<ul>
+								<a href="#top"><li>Home</li></a>
+								<a href="#produits"><li>Produits</li></a>
+								<a href="#contact"><li>Contact</li></a>
+								<a href="#about"><li>About us</li></a>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+				<div class="bottom">
+					<div class="container">
+						<div class="text">
+							Website Created with<i class="fa-solid fa-heart"></i>
+						</div>
+
+						<div class="copyright">
+							Copyright &copy; allrights reserved - 2022
+						</div>
+					</div>
+				</div>
+			</footer>
 		</main>
 	</body>
 </html>

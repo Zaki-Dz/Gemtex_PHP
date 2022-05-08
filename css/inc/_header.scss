@@ -1,7 +1,3 @@
-body {
-	min-height: 10000px;
-}
-
 header {
 	padding-block: 0.5rem;
 	z-index: 10;
@@ -9,8 +5,8 @@ header {
 	width: 100%;
 	top: 0;
 	left: 0;
-	background-color: white;
-	// backdrop-filter: blur(0.25rem);
+	backdrop-filter: blur(0.25rem);
+	background-color: #fffa;
 	transition: $mainTransition;
 	box-shadow: 0 0 1rem;
 
@@ -28,7 +24,6 @@ header {
 			display: none;
 			z-index: 10;
 			padding: 0.5rem;
-			border-radius: 0.25rem;
 			border: 2px solid;
 			cursor: pointer;
 
@@ -51,6 +46,7 @@ header {
 					position: relative;
 					z-index: 1;
 					overflow: hidden;
+					text-transform: uppercase;
 
 					@include maxMd {
 						font-size: 0.8rem;
