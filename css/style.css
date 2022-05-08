@@ -244,6 +244,21 @@ header .container nav ul li:hover::before {
 .presentation .container .content .text {
   flex: 1;
 }
+.presentation .container .content .text .title {
+  margin-bottom: 2rem;
+  border-bottom: 5px solid #fa0;
+  padding-bottom: 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.presentation .container .content .text p {
+  text-indent: 1rem;
+}
+.presentation .container .content .text p::first-letter {
+  font-size: 2rem;
+  padding-right: 0.5rem;
+}
 .presentation .container .content .illustration {
   flex: 1;
   display: flex;
