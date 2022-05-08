@@ -243,29 +243,18 @@ header .container nav ul li:hover::before {
   margin-bottom: 2rem;
 }
 .produits .container .categories .category {
-  border-bottom: 2px solid #111;
+  border-bottom: 2px solid;
   padding: 0.5rem;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  transition: 0.3s;
 }
 .produits .container .categories .category.active {
   color: #fa0;
-  border-color: #fa0;
 }
-.produits .container .categories .category::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #fa0;
-  z-index: -1;
-  transition: 0.3s;
-}
-.produits .container .categories .category:hover::before {
-  left: 0;
+.produits .container .categories .category:hover {
+  color: #fa0;
 }
 .produits .container .produits-container {
   display: grid;
@@ -284,7 +273,7 @@ header .container nav ul li:hover::before {
 }
 .produits .container .produits-container .produit .name {
   position: absolute;
-  background-color: #fa0;
+  background-color: #fa0a;
   font-weight: bold;
   left: 0;
   bottom: -100px;
@@ -299,7 +288,23 @@ header .container nav ul li:hover::before {
 }
 
 .contact {
-  background-color: #fa0;
+  position: relative;
+}
+.contact .call {
+  position: absolute;
+  z-index: -1;
+  max-width: 400px;
+  bottom: 0;
+  right: 0;
+}
+.contact::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fa0a;
 }
 .contact .container {
   display: flex;
@@ -313,37 +318,44 @@ header .container nav ul li:hover::before {
 .contact .container form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 600px;
+  gap: 1rem;
+  max-width: 400px;
   width: 100%;
 }
 .contact .container form .input-box {
   position: relative;
 }
-.contact .container form .input-box input {
-  background-color: white;
+.contact .container form .input-box textarea {
+  resize: none;
+  min-height: 100px;
+}
+.contact .container form .input-box input,
+.contact .container form .input-box textarea {
+  background-color: rgba(255, 255, 255, 0.6666666667);
   padding: 1rem;
   border: 2px solid #111;
   outline: none;
   width: 100%;
   font-size: 1rem;
 }
-.contact .container form .input-box input:focus + .placeholder {
+.contact .container form .input-box input:focus + .placeholder,
+.contact .container form .input-box textarea:focus + .placeholder {
   top: 0;
   background-color: white;
-  border: 2px solid #111;
-  padding: 0.25rem 0.5rem;
+  border: 2px solid black;
+  padding: 0.125rem 0.5rem;
 }
 .contact .container form .input-box .placeholder {
   position: absolute;
   top: 50%;
   left: 1rem;
+  font-size: 0.8rem;
   transform: translateY(-50%);
-  border: 2px solid white;
+  border: 2px solid transparent;
   transition: 0.3s;
 }
 .contact .container form button {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6666666667);
   padding: 1rem;
   border: 2px solid #111;
   transition: 0.3s;
@@ -351,9 +363,10 @@ header .container nav ul li:hover::before {
   position: relative;
   z-index: 1;
   overflow: hidden;
-}
-.contact .container form button {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .contact .container form button::before {
   content: "";
@@ -368,6 +381,10 @@ header .container nav ul li:hover::before {
 }
 .contact .container form button:hover::before {
   left: 0;
+}
+.contact .container form button:hover {
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
 }
 
 footer .top {
@@ -387,7 +404,6 @@ footer .top .container .links {
   gap: 1rem;
 }
 footer .top .container .links li {
-  background-color: #fa0;
   border-radius: 50%;
   min-width: 50px;
   min-height: 50px;
@@ -395,6 +411,7 @@ footer .top .container .links li {
   align-items: center;
   justify-content: center;
   color: #111;
+  background-color: #fa0;
 }
 footer .top .container nav ul {
   display: flex;
