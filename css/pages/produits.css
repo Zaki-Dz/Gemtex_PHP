@@ -1,0 +1,272 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: roboto, arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+}
+
+img {
+  width: 100%;
+  margin-bottom: -5px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.content .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .top .tabs {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #fa0;
+}
+.content .top .tabs .tab {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border: 2px solid #fa0;
+  border-bottom: none;
+  transition: 0.3s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.content .top .tabs .tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #fa0a;
+  z-index: -1;
+  transition: 0.3s;
+}
+.content .top .tabs .tab:hover::before {
+  width: 100%;
+}
+.content .top .tabs .tab:hover {
+  color: white;
+}
+.content .top .tabs .tab.active {
+  background-color: #fa0;
+  color: white;
+}
+.content .top form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  width: 100%;
+}
+.content .top form .input-box {
+  position: relative;
+}
+.content .top form .input-box input {
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  padding: 1rem;
+  border: 2px solid #fa0;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+.content .top form .input-box input:focus + .placeholder {
+  top: 0;
+  background-color: white;
+  border: 2px solid #fa0;
+  padding: 0.125rem 0.5rem;
+}
+.content .top form .input-box input:valid + .placeholder {
+  opacity: 0;
+}
+.content .top form .input-box .placeholder {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  font-size: 0.8rem;
+  transform: translateY(-50%);
+  border: 2px solid transparent;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.content .top form button {
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  padding: 1rem;
+  border: 2px solid #fa0;
+  transition: 0.3s;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .top form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fa0;
+  z-index: -1;
+  transition: 0.3s;
+}
+.content .top form button:hover::before, .content .top form button:focus::before {
+  left: 0;
+}
+.content .top form button:hover, .content .top form button:focus {
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
+  border-color: #111;
+}
+.content .bottom {
+  position: relative;
+}
+.content .bottom .tab-content {
+  position: absolute;
+  padding-top: 2rem;
+  display: none;
+  width: 100%;
+}
+.content .bottom .tab-content.active {
+  display: unset;
+}
+.content .bottom .tab-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.content .bottom .tab-content table tr {
+  border: 2px solid #fa0;
+}
+.content .bottom .tab-content table tr:nth-child(odd) {
+  background-color: #fa0a;
+}
+.content .bottom .tab-content table tr th {
+  border: 2px solid #fa0;
+  padding: 0.5rem 1rem;
+}
+.content .bottom .tab-content table tr th:nth-child(2) {
+  width: 100%;
+}
+.content .bottom .tab-content table tr td {
+  border: 2px solid #fa0;
+  padding: 0.5rem 1rem;
+}
+.content .bottom .tab-content table tr td img {
+  width: 100px;
+}
+.content .bottom .tab-content table tr td button {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.content .bottom .tab-content table tr td .edit {
+  color: green;
+}
+.content .bottom .tab-content table tr td .delete {
+  color: red;
+}
+.content .bottom .tab-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  width: 100%;
+}
+.content .bottom .tab-content form .input-box {
+  position: relative;
+}
+.content .bottom .tab-content form .input-box input {
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  padding: 1rem;
+  border: 2px solid #fa0;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+.content .bottom .tab-content form .input-box input[type=file] {
+  cursor: pointer;
+}
+.content .bottom .tab-content form .input-box input:focus + .placeholder {
+  top: 0;
+  background-color: white;
+  border: 2px solid #fa0;
+  padding: 0.125rem 0.5rem;
+}
+.content .bottom .tab-content form .input-box input:required:valid + .placeholder {
+  opacity: 0;
+}
+.content .bottom .tab-content form .input-box .placeholder {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  font-size: 0.8rem;
+  transform: translateY(-50%);
+  border: 2px solid transparent;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.content .bottom .tab-content form button {
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  padding: 1rem;
+  border: 2px solid #fa0;
+  transition: 0.3s;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .bottom .tab-content form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fa0;
+  z-index: -1;
+  transition: 0.3s;
+}
+.content .bottom .tab-content form button:hover::before, .content .bottom .tab-content form button:focus::before {
+  left: 0;
+}
+.content .bottom .tab-content form button:hover, .content .bottom .tab-content form button:focus {
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
+  border-color: #111;
+}/*# sourceMappingURL=produits.css.map */

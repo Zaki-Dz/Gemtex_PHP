@@ -5,7 +5,7 @@ header {
 	width: 100%;
 	top: 0;
 	left: 0;
-	backdrop-filter: blur(0.25rem);
+	backdrop-filter: blur(0.5rem);
 	background-color: #fffa;
 	transition: $mainTransition;
 	box-shadow: 0 0 1rem;
@@ -16,15 +16,22 @@ header {
 		justify-content: space-between;
 
 		.logo {
-			max-width: 120px;
+			background-image: url('../../images/logo.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			width: 100px;
+			height: 50px;
 			z-index: 10;
+
+			@include maxSm {
+				background-image: url('../../images/mini-logo.png');
+			}
 		}
 
 		.nav-btn {
 			display: none;
 			z-index: 10;
 			padding: 0.5rem;
-			border: 2px solid;
 			cursor: pointer;
 
 			@include maxSm {

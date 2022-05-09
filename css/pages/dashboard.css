@@ -1,0 +1,61 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: roboto, arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+}
+
+img {
+  width: 100%;
+  margin-bottom: -5px;
+}
+
+.content {
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 0;
+}
+.content .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.content .boxes .box {
+  border: 2px solid #fa0;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.content .boxes .box h3 {
+  color: #fa0;
+}
+.content .boxes .box span {
+  color: #333;
+}/*# sourceMappingURL=dashboard.css.map */

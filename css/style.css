@@ -71,8 +71,8 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  -webkit-backdrop-filter: blur(0.25rem);
-          backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+          backdrop-filter: blur(0.5rem);
   background-color: rgba(255, 255, 255, 0.6666666667);
   transition: 0.3s;
   box-shadow: 0 0 1rem;
@@ -83,14 +83,22 @@ header .container {
   justify-content: space-between;
 }
 header .container .logo {
-  max-width: 120px;
+  background-image: url("../../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 50px;
   z-index: 10;
+}
+@media (max-width: 767px) {
+  header .container .logo {
+    background-image: url("../../images/mini-logo.png");
+  }
 }
 header .container .nav-btn {
   display: none;
   z-index: 10;
   padding: 0.5rem;
-  border: 2px solid;
   cursor: pointer;
 }
 @media (max-width: 767px) {
@@ -240,6 +248,15 @@ header .container nav ul li:hover::before {
 .presentation .container .content {
   display: flex;
   align-items: center;
+  padding: 0 2rem;
+}
+@media (max-width: 767px) {
+  .presentation .container .content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    gap: 2rem;
+  }
 }
 .presentation .container .content .text {
   flex: 1;
@@ -251,6 +268,11 @@ header .container nav ul li:hover::before {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+@media (max-width: 767px) {
+  .presentation .container .content .text .title {
+    margin-inline: auto;
+  }
 }
 .presentation .container .content .text p {
   text-indent: 1rem;
@@ -420,6 +442,10 @@ header .container nav ul li:hover::before {
   border: 2px solid black;
   padding: 0.125rem 0.5rem;
 }
+.contact .container form .input-box input:required:valid + .placeholder,
+.contact .container form .input-box textarea:required:valid + .placeholder {
+  opacity: 0;
+}
 .contact .container form .input-box .placeholder {
   position: absolute;
   top: 50%;
@@ -428,6 +454,7 @@ header .container nav ul li:hover::before {
   transform: translateY(-50%);
   border: 2px solid transparent;
   transition: 0.3s;
+  pointer-events: none;
 }
 .contact .container form button {
   background-color: rgba(255, 255, 255, 0.6666666667);
@@ -454,10 +481,10 @@ header .container nav ul li:hover::before {
   z-index: -1;
   transition: 0.3s;
 }
-.contact .container form button:hover::before {
+.contact .container form button:hover::before, .contact .container form button:focus::before {
   left: 0;
 }
-.contact .container form button:hover {
+.contact .container form button:hover, .contact .container form button:focus {
   box-shadow: 5px 5px black;
   transform: translate(-5px, -5px);
 }
@@ -520,8 +547,189 @@ footer .bottom .container i {
   color: red;
 }
 
-section {
-  padding-block: 100px;
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: roboto, arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+}
+
+img {
+  width: 100%;
+  margin-bottom: -5px;
+}
+
+main .container {
+  display: flex;
+}
+main .container .left {
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+@media (max-width: 767px) {
+  main .container .left {
+    display: none;
+  }
+}
+main .container .left img {
+  max-width: 300px;
+}
+main .container .right {
+  height: 100vh;
+  background-color: #fa0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/admin-bg.jpg");
+  background-size: cover;
+  background-position: 0 0;
+  position: relative;
+}
+main .container .right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fa0a;
+}
+main .container .right form {
+  border: 2px solid #111;
+  padding: 2rem;
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+@media (max-width: 767px) {
+  main .container .right form {
+    max-width: 90%;
+  }
+}
+main .container .right form legend {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #111;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  font-size: 1.5rem;
+}
+main .container .right form .input-box {
+  position: relative;
+}
+main .container .right form .input-box textarea {
+  resize: none;
+  min-height: 100px;
+}
+main .container .right form .input-box input,
+main .container .right form .input-box textarea {
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  padding: 1rem;
+  border: 2px solid #111;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+main .container .right form .input-box input:focus + .placeholder,
+main .container .right form .input-box textarea:focus + .placeholder {
+  top: 0;
+  background-color: white;
+  border: 2px solid black;
+  padding: 0.125rem 0.5rem;
+}
+main .container .right form .input-box input:valid + .placeholder {
+  opacity: 0;
+}
+main .container .right form .input-box .placeholder {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  font-size: 0.8rem;
+  transform: translateY(-50%);
+  border: 2px solid transparent;
+  transition: 0.3s;
+  pointer-events: none;
+}
+main .container .right form .box {
+  display: flex;
+  gap: 1rem;
+}
+main .container .right form .box button {
+  flex: 1;
+}
+main .container .right form .box button,
+main .container .right form .box a {
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  padding: 1rem;
+  border: 2px solid #111;
+  transition: 0.3s;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .container .right form .box button::before,
+main .container .right form .box a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fa0;
+  z-index: -1;
+  transition: 0.3s;
+}
+main .container .right form .box button:hover::before,
+main .container .right form .box a:hover::before {
+  left: 0;
+}
+main .container .right form .box button:hover,
+main .container .right form .box a:hover {
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
 }
 
 .section-title {
@@ -575,11 +783,12 @@ section {
 .top-btn {
   position: fixed;
   right: -100px;
-  bottom: 0;
+  bottom: 1rem;
   -webkit-backdrop-filter: blur(0.25rem);
           backdrop-filter: blur(0.25rem);
   background-color: rgba(255, 255, 255, 0.6666666667);
   border: 2px solid #111;
+  border-right: none;
   padding: 1rem;
   z-index: 1000;
   transition: 0.3s;
@@ -601,4 +810,8 @@ section {
 }
 .top-btn i {
   transform: rotateY(180deg);
+}
+
+section {
+  padding-block: 100px;
 }/*# sourceMappingURL=style.css.map */

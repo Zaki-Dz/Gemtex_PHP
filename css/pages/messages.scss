@@ -1,36 +1,17 @@
-.contact {
-	position: relative;
+@import '../inc/variables';
 
-	.call {
-		position: absolute;
-		z-index: -1;
-		max-width: 400px;
-		bottom: 0;
-		right: 0;
-	}
+@import '../inc/mixins';
 
-	&::before {
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: ($secondaryColor + a);
-	}
+@import '../inc/default';
 
-	.container {
+.content {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+
+	.top {
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-
-		.section-title {
-			&::before,
-			&::after {
-				background-color: white;
-			}
-		}
+		justify-content: end;
 
 		form {
 			display: flex;
@@ -43,16 +24,10 @@
 			.input-box {
 				position: relative;
 
-				textarea {
-					resize: none;
-					min-height: 100px;
-				}
-
-				input,
-				textarea {
+				input {
 					background-color: #fffa;
 					padding: 1rem;
-					border: 2px solid $mainColor;
+					border: 2px solid $secondaryColor;
 					outline: none;
 					width: 100%;
 					font-size: 1rem;
@@ -60,13 +35,12 @@
 					&:focus + .placeholder {
 						top: 0;
 						background-color: white;
-						border: 2px solid black;
+						border: 2px solid $secondaryColor;
 						padding: 0.125rem 0.5rem;
 					}
 				}
 
-				input:required:valid + .placeholder,
-				textarea:required:valid + .placeholder {
+				input:valid + .placeholder {
 					opacity: 0;
 				}
 
@@ -85,7 +59,7 @@
 			button {
 				background-color: #fffa;
 				padding: 1rem;
-				border: 2px solid $mainColor;
+				border: 2px solid $secondaryColor;
 				transition: $mainTransition;
 				outline: none;
 				position: relative;
@@ -118,6 +92,72 @@
 					$size: 5px;
 					box-shadow: $size $size black;
 					transform: translate(-$size, -$size);
+					border-color: $mainColor;
+				}
+			}
+		}
+	}
+
+	.bottom {
+		position: relative;
+
+		.tab-content {
+			position: absolute;
+			padding-top: 2rem;
+			display: none;
+			width: 100%;
+
+			&.active {
+				display: unset;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+
+				tr {
+					border: 2px solid $secondaryColor;
+
+					&:nth-child(odd) {
+						background-color: $secondaryColor + a;
+					}
+
+					th {
+						border: 2px solid $secondaryColor;
+						padding: 0.5rem 1rem;
+
+						&:nth-child(2) {
+							width: 100%;
+						}
+					}
+
+					td {
+						border: 2px solid $secondaryColor;
+						padding: 0.5rem 1rem;
+
+						&:nth-child(3) {
+							font-size: 0.8rem;
+							width: 0;
+						}
+
+						span:not(:last-of-type) {
+							display: block;
+							margin-bottom: 1rem;
+						}
+
+						button {
+							padding: 0.5rem;
+							cursor: pointer;
+						}
+
+						.edit {
+							color: green;
+						}
+
+						.delete {
+							color: red;
+						}
+					}
 				}
 			}
 		}
