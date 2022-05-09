@@ -4,6 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Nous somme une entreprise algerienne, nous vendons des produits se securité comme des vetements, gants, chaussures etc ..."
+		/>
 		<title>GemTex</title>
 		<link rel="stylesheet" type="text/css" href="css/inc/all.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -17,11 +21,11 @@
 
 		<header>
 			<div class="container">
-				<div class="logo">
+				<div class="logo" aria-label="Logo">
 					<!-- <img src="images/logo.png" /> -->
 				</div>
 
-				<i class="fa-solid fa-bars fa-2x nav-btn"></i>
+				<i class="fa-solid fa-bars fa-2x nav-btn" aria-label="Top button"></i>
 
 				<nav>
 					<ul>
@@ -36,9 +40,18 @@
 
 		<div class="landing">
 			<div class="slider">
-				<img src="images/construction-silhouette.jpg" alt="" />
-				<img src="images/power-plant-construction.jpg" alt="" />
-				<img src="images/workers-examining-work.jpg" alt="" />
+				<img
+					src="images/construction-silhouette.jpg"
+					alt="construction-silhouette"
+				/>
+				<img
+					src="images/power-plant-construction.jpg"
+					alt="power-plant-construction"
+				/>
+				<img
+					src="images/workers-examining-work.jpg"
+					alt="workers-examining-work"
+				/>
 			</div>
 		</div>
 
@@ -62,7 +75,7 @@
 						</div>
 
 						<div class="illustration">
-							<img src="images/products.jpg" alt="" />
+							<img src="images/products.jpg" alt="products" />
 						</div>
 					</div>
 				</div>
@@ -84,32 +97,32 @@
 
 					<div class="produits-container">
 						<div class="produit" data-category="visage">
-							<img src="images/casque-lunette.jpg" alt="" />
+							<img src="images/casque-lunette.jpg" alt="casque-lunette" />
 							<div class="name">Casque</div>
 						</div>
 
 						<div class="produit hide" data-category="chaussure">
-							<img src="images/ronjers.png" alt="" />
+							<img src="images/ronjers.png" alt="ronjers" />
 							<div class="name">Casque</div>
 						</div>
 
 						<div class="produit" data-category="chaussure">
-							<img src="images/ronjers.png" alt="" />
+							<img src="images/ronjers.png" alt="ronjers" />
 							<div class="name">Casque</div>
 						</div>
 
 						<div class="produit" data-category="chaussure">
-							<img src="images/ronjers.png" alt="" />
+							<img src="images/ronjers.png" alt="ronjers" />
 							<div class="name">Casque</div>
 						</div>
 
 						<div class="produit" data-category="chaussure">
-							<img src="images/ronjers.png" alt="" />
+							<img src="images/ronjers.png" alt="ronjers" />
 							<div class="name">Casque</div>
 						</div>
 
 						<div class="produit" data-category="chaussure">
-							<img src="images/ronjers.png" alt="" />
+							<img src="images/ronjers.png" alt="ronjers" />
 							<div class="name">Casque</div>
 						</div>
 					</div>
@@ -123,15 +136,15 @@
 					</div>
 
 					<div class="partenaires-container">
-						<img src="images/5597669.jpg" alt="" />
-						<img src="images/5613946.jpg" alt="" />
-						<img src="images/rovenlogos-safety-light.jpg" alt="" />
-						<img src="images/5597669.jpg" alt="" />
-						<img src="images/5613946.jpg" alt="" />
-						<img src="images/rovenlogos-safety-light.jpg" alt="" />
-						<img src="images/5597669.jpg" alt="" />
-						<img src="images/5613946.jpg" alt="" />
-						<img src="images/rovenlogos-safety-light.jpg" alt="" />
+						<img src="images/5597669.jpg" alt="logo" />
+						<img src="images/5613946.jpg" alt="logo" />
+						<img src="images/rovenlogos-safety-light.jpg" alt="logo" />
+						<img src="images/5597669.jpg" alt="logo" />
+						<img src="images/5613946.jpg" alt="logo" />
+						<img src="images/rovenlogos-safety-light.jpg" alt="logo" />
+						<img src="images/5597669.jpg" alt="logo" />
+						<img src="images/5613946.jpg" alt="logo" />
+						<img src="images/rovenlogos-safety-light.jpg" alt="logo" />
 					</div>
 				</div>
 			</section>
@@ -140,7 +153,7 @@
 				<img
 					class="call"
 					src="images/front-view-male-builder-uniform-helmet-gray-background_140725-147973.webp.png"
-					alt=""
+					alt="front-view-male-builder-uniform-helmet-gray-background_140725-147973"
 				/>
 
 				<div class="container">
@@ -151,31 +164,33 @@
 					<form>
 						<div class="input-box">
 							<input type="text" required />
-							<span class="placeholder">Nom</span>
+							<label class="placeholder">Nom</label>
 						</div>
 
 						<div class="input-box">
 							<input type="text" required />
-							<span class="placeholder">Prenom</span>
+							<label class="placeholder">Prenom</label>
 						</div>
 
 						<div class="input-box">
 							<input type="email" required />
-							<span class="placeholder">Email</span>
+							<label class="placeholder">Email</label>
 						</div>
 
 						<div class="input-box">
 							<input type="tel" required />
-							<span class="placeholder">N°-Telephone</span>
+							<label class="placeholder">N°-Telephone</label>
 						</div>
 
 						<div class="input-box">
 							<textarea type="text" required></textarea>
-							<span class="placeholder">Message</span>
+							<label class="placeholder">Message</label>
 						</div>
 
-						<button>Envoyer <i class="fa-regular fa-paper-plane"></i></button>
-						<!-- <button>Envoyer <i class="fa-solid fa-paper-plane"></i></button> -->
+						<button type="submit">
+							Envoyer
+							<i class="fa-regular fa-paper-plane" aria-label="paper plane"></i>
+						</button>
 					</form>
 				</div>
 			</section>
@@ -195,26 +210,38 @@
 				<div class="top">
 					<div class="container">
 						<ul class="links">
-							<a href="#">
-								<li><i class="fa-brands fa-facebook-f"></i></li>
+							<a href="#" aria-label="link to facebook">
+								<li>
+									<i
+										class="fa-brands fa-facebook-f"
+										aria-label="facebook icon"
+									></i>
+								</li>
 							</a>
-							<a href="#">
-								<li><i class="fa-brands fa-twitter"></i></li>
+							<a href="#" aria-label="link to twitter">
+								<li>
+									<i class="fa-brands fa-twitter" aria-label="twitter icon"></i>
+								</li>
 							</a>
-							<a href="#">
-								<li><i class="fa-solid fa-at"></i></li>
+							<a href="#" aria-label="link to email">
+								<li><i class="fa-solid fa-at" aria-label="email icon"></i></li>
 							</a>
-							<a href="#">
-								<li><i class="fa-brands fa-instagram"></i></li>
+							<a href="#" aria-label="link to instagram">
+								<li>
+									<i
+										class="fa-brands fa-instagram"
+										aria-label="instagram icon"
+									></i>
+								</li>
 							</a>
 						</ul>
 
 						<nav>
 							<ul>
-								<a href="#top"><li>Home</li></a>
+								<a href="#presentation"><li>Presentation</li></a>
 								<a href="#produits"><li>Produits</li></a>
+								<a href="#partenaires"><li>Partenaires</li></a>
 								<a href="#contact"><li>Contact</li></a>
-								<a href="#about"><li>About us</li></a>
 							</ul>
 						</nav>
 					</div>
@@ -224,7 +251,9 @@
 					<div class="container">
 						<div class="text">
 							Website made with
-							<a href="admin"><i class="fa-solid fa-heart"></i></a>
+							<a href="admin"
+								><i class="fa-solid fa-heart" aria-label="heart icon"></i
+							></a>
 						</div>
 
 						<div class="copyright">
