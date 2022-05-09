@@ -29,6 +29,7 @@
 			}
 
 			.category {
+				border: 2px solid transparent;
 				border-bottom: 2px solid;
 				padding: 0.5rem;
 				position: relative;
@@ -38,6 +39,7 @@
 
 				&.active {
 					background-color: white;
+					border: 2px solid $mainColor;
 				}
 
 				&:not(.active):hover {

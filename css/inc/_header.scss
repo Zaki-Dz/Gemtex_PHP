@@ -24,7 +24,7 @@ header {
 			z-index: 10;
 
 			@include maxSm {
-				background-image: url('../../images/mini-logo.png');
+				background-image: url('../images/mini-logo.png');
 			}
 		}
 

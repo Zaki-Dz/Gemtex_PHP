@@ -92,7 +92,7 @@ header .container .logo {
 }
 @media (max-width: 767px) {
   header .container .logo {
-    background-image: url("../../images/mini-logo.png");
+    background-image: url("../images/mini-logo.png");
   }
 }
 header .container .nav-btn {
@@ -316,6 +316,7 @@ header .container nav ul li:hover::before {
   }
 }
 .produits .container .categories .category {
+  border: 2px solid transparent;
   border-bottom: 2px solid;
   padding: 0.5rem;
   position: relative;
@@ -325,6 +326,7 @@ header .container nav ul li:hover::before {
 }
 .produits .container .categories .category.active {
   background-color: white;
+  border: 2px solid #111;
 }
 .produits .container .categories .category:not(.active):hover {
   color: white;
