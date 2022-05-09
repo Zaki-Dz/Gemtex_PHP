@@ -1,5 +1,5 @@
 .produits {
-	background-color: $secondaryColor;
+	background-color: $secondaryColor + a;
 
 	.container {
 		display: flex;
@@ -37,11 +37,10 @@
 				transition: $mainTransition;
 
 				&.active {
-					// background-color: $secondaryColor;
-					color: white;
+					background-color: white;
 				}
 
-				&:hover {
+				&:not(.active):hover {
 					color: white;
 				}
 			}

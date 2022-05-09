@@ -92,7 +92,7 @@ header .container .logo {
 }
 @media (max-width: 767px) {
   header .container .logo {
-    background-image: url("../images/mini-logo.png");
+    background-image: url("../../images/mini-logo.png");
   }
 }
 header .container .nav-btn {
@@ -175,7 +175,7 @@ header .container nav ul li:hover::before {
   height: 100vh;
   padding: 2rem;
   padding-top: 100px;
-  background-color: #fa0;
+  background-color: #fa0a;
 }
 .landing .slider {
   border: 5px solid white;
@@ -291,7 +291,7 @@ header .container nav ul li:hover::before {
 }
 
 .produits {
-  background-color: #fa0;
+  background-color: #fa0a;
 }
 .produits .container {
   display: flex;
@@ -324,9 +324,9 @@ header .container nav ul li:hover::before {
   transition: 0.3s;
 }
 .produits .container .categories .category.active {
-  color: white;
+  background-color: white;
 }
-.produits .container .categories .category:hover {
+.produits .container .categories .category:not(.active):hover {
   color: white;
 }
 .produits .container .produits-container {
