@@ -83,7 +83,7 @@ header .container {
   justify-content: space-between;
 }
 header .container .logo {
-  background-image: url("../../images/logo.png");
+  background-image: url("../images/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 100px;
@@ -92,7 +92,7 @@ header .container .logo {
 }
 @media (max-width: 767px) {
   header .container .logo {
-    background-image: url("../../images/mini-logo.png");
+    background-image: url("../images/mini-logo.png");
   }
 }
 header .container .nav-btn {
