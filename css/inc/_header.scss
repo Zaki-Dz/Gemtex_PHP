@@ -47,7 +47,8 @@ header {
 				align-items: center;
 				gap: 0.5rem;
 
-				li {
+				a {
+					display: block;
 					border: 2px solid $mainColor;
 					padding: 0.5rem;
 					position: relative;

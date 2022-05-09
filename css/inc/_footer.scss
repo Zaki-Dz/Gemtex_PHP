@@ -15,7 +15,7 @@ footer {
 				align-items: center;
 				gap: 1rem;
 
-				li {
+				a {
 					border-radius: 50%;
 					min-width: 50px;
 					min-height: 50px;
@@ -24,9 +24,6 @@ footer {
 					justify-content: center;
 					color: $mainColor;
 					background-color: $secondaryColor;
-
-					&:hover {
-					}
 				}
 			}
 

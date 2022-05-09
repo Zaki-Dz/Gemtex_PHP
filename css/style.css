@@ -114,7 +114,8 @@ header .container nav ul {
   align-items: center;
   gap: 0.5rem;
 }
-header .container nav ul li {
+header .container nav ul a {
+  display: block;
   border: 2px solid #111;
   padding: 0.5rem;
   position: relative;
@@ -123,11 +124,11 @@ header .container nav ul li {
   text-transform: uppercase;
 }
 @media (max-width: 991px) {
-  header .container nav ul li {
+  header .container nav ul a {
     font-size: 0.8rem;
   }
 }
-header .container nav ul li::before {
+header .container nav ul a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -138,7 +139,7 @@ header .container nav ul li::before {
   z-index: -1;
   transition: 0.3s;
 }
-header .container nav ul li:hover::before {
+header .container nav ul a:hover::before {
   left: 0;
 }
 @media (max-width: 767px) {
@@ -507,7 +508,7 @@ footer .top .container .links {
   align-items: center;
   gap: 1rem;
 }
-footer .top .container .links li {
+footer .top .container .links a {
   border-radius: 50%;
   min-width: 50px;
   min-height: 50px;
