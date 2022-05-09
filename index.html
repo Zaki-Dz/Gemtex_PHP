@@ -15,7 +15,7 @@
 	</head>
 
 	<body id="top">
-		<button class="top-btn">
+		<button class="top-btn" aria-label="Top button">
 			<i class="fa-solid fa-arrow-turn-up fa-2x"></i>
 		</button>
 
@@ -161,28 +161,28 @@
 
 					<form>
 						<div class="input-box">
-							<input type="text" required />
-							<label class="placeholder">Nom</label>
+							<input type="text" id="nom" required />
+							<label class="placeholder" for="nom">Nom</label>
 						</div>
 
 						<div class="input-box">
-							<input type="text" required />
-							<label class="placeholder">Prenom</label>
+							<input type="text" id="prenom" required />
+							<label class="placeholder" for="prenom">Prenom</label>
 						</div>
 
 						<div class="input-box">
-							<input type="email" required />
-							<label class="placeholder">Email</label>
+							<input type="email" id="email" required />
+							<label class="placeholder" for="email">Email</label>
 						</div>
 
 						<div class="input-box">
-							<input type="tel" required />
-							<label class="placeholder">N°-Telephone</label>
+							<input type="tel" id="phone" required />
+							<label class="placeholder" for="phone">N°-Telephone</label>
 						</div>
 
 						<div class="input-box">
-							<textarea type="text" required></textarea>
-							<label class="placeholder">Message</label>
+							<textarea type="text" id="message" required></textarea>
+							<label class="placeholder" for="message">Message</label>
 						</div>
 
 						<button type="submit">
@@ -208,20 +208,23 @@
 				<div class="top">
 					<div class="container">
 						<ul class="links">
-							<a href="#">
+							<a href="#" aria-label="facebook link">
 								<li>
 									<i class="fa-brands fa-facebook-f"></i>
 								</li>
 							</a>
-							<a href="#">
+
+							<a href="#" aria-label="twitter link">
 								<li>
 									<i class="fa-brands fa-twitter"></i>
 								</li>
 							</a>
-							<a href="#">
+
+							<a href="#" aria-label="email link">
 								<li><i class="fa-solid fa-at"></i></li>
 							</a>
-							<a href="#">
+
+							<a href="#" aria-label="instagram link">
 								<li>
 									<i class="fa-brands fa-instagram"></i>
 								</li>
@@ -243,7 +246,9 @@
 					<div class="container">
 						<div class="text">
 							Website made with
-							<a href="admin"><i class="fa-solid fa-heart"></i></a>
+							<a href="admin" aria-label="admin page link"
+								><i class="fa-solid fa-heart"></i
+							></a>
 						</div>
 
 						<div class="copyright">
