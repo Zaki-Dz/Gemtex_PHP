@@ -54,9 +54,20 @@ img {
   height: 100%;
   background-color: #fa0a;
 }
+@media (max-width: 991px) {
+  .shapes {
+    display: none;
+  }
+}
 
 table {
   background-color: white;
+}
+
+@media (max-width: 767px) {
+  .content {
+    padding: 0 !important;
+  }
 }
 
 aside {
@@ -68,16 +79,29 @@ aside {
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 991px) {
+  aside {
+    width: 80px;
+  }
+}
 aside .logo {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-}
-aside .logo img {
+  height: 100px;
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   filter: brightness(0) invert(1);
-  max-width: 150px;
+}
+@media (max-width: 991px) {
+  aside .logo {
+    padding: 1rem 0;
+    background-image: url("../images/mini-logo.png");
+  }
 }
 aside .bottom {
   display: flex;
@@ -88,6 +112,11 @@ aside .bottom {
 aside .bottom nav {
   padding: 2rem;
   padding-right: 0;
+}
+@media (max-width: 991px) {
+  aside .bottom nav {
+    padding-left: 0.25rem;
+  }
 }
 aside .bottom nav ul {
   display: flex;
@@ -106,6 +135,11 @@ aside .bottom nav ul li {
   position: relative;
   overflow: hidden;
   z-index: 1;
+}
+@media (max-width: 991px) {
+  aside .bottom nav ul li {
+    gap: 3rem;
+  }
 }
 aside .bottom nav ul li::before {
   content: "";
@@ -135,6 +169,11 @@ aside .bottom .logout {
   display: flex;
   font-display: column;
 }
+@media (max-width: 991px) {
+  aside .bottom .logout {
+    padding-left: 1rem;
+  }
+}
 aside .bottom .logout form {
   width: 100%;
 }
@@ -148,6 +187,9 @@ aside .bottom .logout form button {
   overflow: hidden;
   z-index: 1;
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 aside .bottom .logout form button::before {
   content: "";
@@ -175,7 +217,18 @@ main {
   padding: 1rem;
   overflow: auto;
 }
+@media (max-width: 991px) {
+  main {
+    width: calc(100% - 80px);
+  }
+}
 main .page-title {
   color: #fa0;
   padding: 1rem;
+}
+@media (max-width: 767px) {
+  main .page-title {
+    padding: 0;
+    padding-bottom: 1rem;
+  }
 }/*# sourceMappingURL=admin.css.map */

@@ -47,10 +47,21 @@ img {
   align-items: center;
   justify-content: space-between;
 }
+@media (max-width: 767px) {
+  .content .top {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 .content .top .tabs {
   display: flex;
   align-items: center;
   border-bottom: 2px solid #fa0;
+}
+@media (max-width: 767px) {
+  .content .top .tabs {
+    order: 2;
+  }
 }
 .content .top .tabs .tab {
   padding: 1rem 2rem;
@@ -61,6 +72,11 @@ img {
   position: relative;
   z-index: 1;
   overflow: hidden;
+}
+@media (max-width: 767px) {
+  .content .top .tabs .tab {
+    padding: 0.5rem 1rem;
+  }
 }
 .content .top .tabs .tab::before {
   content: "";

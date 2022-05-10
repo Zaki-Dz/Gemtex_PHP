@@ -21,10 +21,20 @@
 		height: 100%;
 		background-color: $secondaryColor + a;
 	}
+
+	@include maxMd {
+		display: none;
+	}
 }
 
 table {
 	background-color: white;
+}
+
+.content {
+	@include maxSm {
+		padding: 0 !important;
+	}
 }
 
 aside {
@@ -36,16 +46,27 @@ aside {
 	display: flex;
 	flex-direction: column;
 
+	@include maxMd {
+		width: 80px;
+	}
+
 	.logo {
 		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: 1rem;
+		height: 100px;
 
-		img {
-			filter: brightness(0) invert(1);
-			max-width: 150px;
+		background-image: url('../images/logo.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		filter: brightness(0) invert(1);
+
+		@include maxMd {
+			padding: 1rem 0;
+			background-image: url('../images/mini-logo.png');
 		}
 	}
 
@@ -58,6 +79,10 @@ aside {
 		nav {
 			padding: 2rem;
 			padding-right: 0;
+
+			@include maxMd {
+				padding-left: 0.25rem;
+			}
 
 			ul {
 				display: flex;
@@ -76,6 +101,10 @@ aside {
 					position: relative;
 					overflow: hidden;
 					z-index: 1;
+
+					@include maxMd {
+						gap: 3rem;
+					}
 
 					&::before {
 						content: '';
@@ -112,6 +141,10 @@ aside {
 			display: flex;
 			font-display: column;
 
+			@include maxMd {
+				padding-left: 1rem;
+			}
+
 			form {
 				width: 100%;
 
@@ -125,6 +158,9 @@ aside {
 					overflow: hidden;
 					z-index: 1;
 					width: 100%;
+					display: flex;
+					align-items: center;
+					gap: 1rem;
 
 					&::before {
 						content: '';
@@ -159,8 +195,17 @@ main {
 	padding: 1rem;
 	overflow: auto;
 
+	@include maxMd {
+		width: calc(100% - 80px);
+	}
+
 	.page-title {
 		color: $secondaryColor;
 		padding: 1rem;
+
+		@include maxSm {
+			padding: 0;
+			padding-bottom: 1rem;
+		}
 	}
 }

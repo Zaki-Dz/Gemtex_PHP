@@ -42,10 +42,20 @@ img {
   padding-top: 2rem;
   padding-bottom: 0;
 }
+@media (max-width: 767px) {
+  .content {
+    padding-top: 1rem;
+  }
+}
 .content .boxes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
+}
+@media (max-width: 767px) {
+  .content .boxes {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
 .content .boxes .box {
   border: 2px solid #fa0;

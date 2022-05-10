@@ -9,10 +9,18 @@
 	padding-top: 2rem;
 	padding-bottom: 0;
 
+	@include maxSm {
+		padding-top: 1rem;
+	}
+
 	.boxes {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		gap: 1rem;
+
+		@include maxSm {
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		}
 
 		.box {
 			border: 2px solid $secondaryColor;
