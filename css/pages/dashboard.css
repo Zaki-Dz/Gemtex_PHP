@@ -65,6 +65,11 @@ img {
   justify-content: space-between;
   gap: 2rem;
 }
+@media (max-width: 767px) {
+  .content .boxes .box {
+    gap: 1rem;
+  }
+}
 .content .boxes .box h3 {
   color: #fa0;
 }
