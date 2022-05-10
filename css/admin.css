@@ -109,10 +109,12 @@ aside .bottom {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  gap: 1rem;
 }
 aside .bottom nav {
   padding: 2rem;
   padding-right: 0;
+  padding-bottom: 0;
 }
 @media (max-width: 991px) {
   aside .bottom nav {
@@ -167,12 +169,13 @@ aside .bottom nav ul li.active {
 aside .bottom .logout {
   padding: 2rem;
   padding-right: 0;
+  padding-top: 0;
   display: flex;
   font-display: column;
 }
 @media (max-width: 991px) {
   aside .bottom .logout {
-    padding-left: 1rem;
+    padding-left: 0.25rem;
   }
 }
 aside .bottom .logout form {
@@ -191,6 +194,11 @@ aside .bottom .logout form button {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+@media (max-width: 991px) {
+  aside .bottom .logout form button {
+    gap: 3rem;
+  }
 }
 aside .bottom .logout form button::before {
   content: "";

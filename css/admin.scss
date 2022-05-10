@@ -76,10 +76,12 @@ aside {
 		flex-direction: column;
 		justify-content: space-between;
 		flex: 1;
+		gap: 1rem;
 
 		nav {
 			padding: 2rem;
 			padding-right: 0;
+			padding-bottom: 0;
 
 			@include maxMd {
 				padding-left: 0.25rem;
@@ -139,11 +141,12 @@ aside {
 		.logout {
 			padding: 2rem;
 			padding-right: 0;
+			padding-top: 0;
 			display: flex;
 			font-display: column;
 
 			@include maxMd {
-				padding-left: 1rem;
+				padding-left: 0.25rem;
 			}
 
 			form {
@@ -162,6 +165,10 @@ aside {
 					display: flex;
 					align-items: center;
 					gap: 1rem;
+
+					@include maxMd {
+						gap: 3rem;
+					}
 
 					&::before {
 						content: '';
