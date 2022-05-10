@@ -112,35 +112,39 @@ aside {
 			display: flex;
 			font-display: column;
 
-			a {
-				color: white;
-				padding: 0.5rem 1rem;
-				transition: $mainTransition;
-				border-radius: 1rem 0 0 1rem;
-				border-right: 5px solid transparent;
-				position: relative;
-				overflow: hidden;
-				z-index: 1;
+			form {
 				width: 100%;
 
-				&::before {
-					content: '';
-					position: absolute;
-					background-color: white;
-					width: 0;
-					height: 100%;
-					top: 0;
-					left: 0;
+				button {
+					color: white;
+					padding: 0.5rem 1rem;
 					transition: $mainTransition;
-					z-index: -1;
-				}
-
-				&:hover {
-					color: $secondaryColor;
-				}
-
-				&:hover::before {
+					border-radius: 1rem 0 0 1rem;
+					border-right: 5px solid transparent;
+					position: relative;
+					overflow: hidden;
+					z-index: 1;
 					width: 100%;
+
+					&::before {
+						content: '';
+						position: absolute;
+						background-color: white;
+						width: 0;
+						height: 100%;
+						top: 0;
+						left: 0;
+						transition: $mainTransition;
+						z-index: -1;
+					}
+
+					&:hover {
+						color: $secondaryColor;
+					}
+
+					&:hover::before {
+						width: 100%;
+					}
 				}
 			}
 		}

@@ -8,6 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="../css/inc/all.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/admin.css" />
 		<link rel="stylesheet" type="text/css" href="../css/pages/categories.css" />
+		<script src="../js/admin.js" defer></script>
+		<script src="../js/recherche.js" defer></script>
 	</head>
 
 	<body>
@@ -57,7 +59,9 @@
 				</nav>
 
 				<div class="logout">
-					<a href="../">Se deconnecter</a>
+					<form>
+						<button type="submit">Se deconnecter</button>
+					</form>
 				</div>
 			</div>
 		</aside>
@@ -80,82 +84,82 @@
 						<div class="tab" data-id="2">Ajouter</div>
 					</div>
 
-					<form>
-						<div class="input-box">
-							<input type="text" required />
-							<div class="placeholder">Rechercher...</div>
-						</div>
-					</form>
+					<div class="input-box">
+						<input type="text" required />
+						<div class="placeholder">Rechercher...</div>
+					</div>
 				</div>
 
 				<div class="bottom">
 					<div class="tab-content active" data-id="1">
 						<table>
-							<tr>
+							<thead>
 								<th>#Id</th>
 								<th>Nom de la catagory</th>
 								<th colspan="2"></th>
-							</tr>
+							</thead>
 
-							<tr>
-								<td>01</td>
-								<td>Chaussures</td>
-								<td>
-									<button class="edit">
-										<i class="fa-regular fa-pen-to-square"></i>
-									</button>
-								</td>
-								<td>
-									<button class="delete">
-										<i class="fa-regular fa-trash-can"></i>
-									</button>
-								</td>
-							</tr>
+							<tbody>
+								<tr>
+									<td>01</td>
+									<td>Chaussures</td>
+									<td>
+										<button class="edit">
+											<i class="fa-regular fa-pen-to-square"></i>
+										</button>
+									</td>
+									<td>
+										<button class="delete">
+											<i class="fa-regular fa-trash-can"></i>
+										</button>
+									</td>
+								</tr>
 
-							<tr>
-								<td>02</td>
-								<td>Visage</td>
-								<td>
-									<button class="edit">
-										<i class="fa-regular fa-pen-to-square"></i>
-									</button>
-								</td>
-								<td>
-									<button class="delete">
-										<i class="fa-regular fa-trash-can"></i>
-									</button>
-								</td>
-							</tr>
+								<tr>
+									<td>02</td>
+									<td>Visage</td>
+									<td>
+										<button class="edit">
+											<i class="fa-regular fa-pen-to-square"></i>
+										</button>
+									</td>
+									<td>
+										<button class="delete">
+											<i class="fa-regular fa-trash-can"></i>
+										</button>
+									</td>
+								</tr>
 
-							<tr>
-								<td>03</td>
-								<td>Vetements</td>
-								<td>
-									<button class="edit">
-										<i class="fa-regular fa-pen-to-square"></i>
-									</button>
-								</td>
-								<td>
-									<button class="delete">
-										<i class="fa-regular fa-trash-can"></i>
-									</button>
-								</td>
-							</tr>
+								<tr>
+									<td>03</td>
+									<td>Vetements</td>
+									<td>
+										<button class="edit">
+											<i class="fa-regular fa-pen-to-square"></i>
+										</button>
+									</td>
+									<td>
+										<button class="delete">
+											<i class="fa-regular fa-trash-can"></i>
+										</button>
+									</td>
+								</tr>
 
-							<tr>
-								<td>04</td>
-								<td>Gants</td>
-								<td>
-									<button class="edit">
-										<i class="fa-regular fa-pen-to-square"></i>
-									</button>
-								</td>
-								<td>
-									<button class="delete">
-										<i class="fa-regular fa-trash-can"></i>
-									</button>
-								</td>
-							</tr>
+								<tr>
+									<td>04</td>
+									<td>Gants</td>
+									<td>
+										<button class="edit">
+											<i class="fa-regular fa-pen-to-square"></i>
+										</button>
+									</td>
+									<td>
+										<button class="delete">
+											<i class="fa-regular fa-trash-can"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 
@@ -172,30 +176,5 @@
 				</div>
 			</div>
 		</main>
-
-		<script>
-			let tabs = document.querySelectorAll('.tab')
-			let contents = document.querySelectorAll('.tab-content')
-
-			tabs.forEach(tab => {
-				tab.addEventListener('click', () => {
-					let id = tab.dataset.id
-
-					tabs.forEach(tab => {
-						tab.classList.remove('active')
-					})
-
-					tab.classList.add('active')
-
-					contents.forEach(content => {
-						if (content.dataset.id == id) {
-							content.classList.add('active')
-						} else {
-							content.classList.remove('active')
-						}
-					})
-				})
-			})
-		</script>
 	</body>
 </html>

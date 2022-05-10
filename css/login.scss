@@ -101,6 +101,27 @@ main {
 						}
 					}
 
+					select {
+						background-color: #fffa;
+						padding: 1rem;
+						border: 2px solid $mainColor;
+						outline: none;
+						width: 100%;
+						font-size: 1rem;
+
+						& + .placeholder {
+							position: absolute;
+							left: 1rem;
+							font-size: 0.8rem;
+							transform: translateY(-50%);
+							pointer-events: none;
+							top: 0;
+							background-color: white;
+							border: 2px solid $mainColor;
+							padding: 0.125rem 0.5rem;
+						}
+					}
+
 					input:valid + .placeholder {
 						opacity: 0;
 					}

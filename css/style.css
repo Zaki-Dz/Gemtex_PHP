@@ -50,6 +50,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 button {
@@ -57,6 +58,7 @@ button {
   color: inherit;
   font-size: inherit;
   background-color: transparent;
+  cursor: pointer;
 }
 
 img {
@@ -573,6 +575,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 button {
@@ -580,6 +583,7 @@ button {
   color: inherit;
   font-size: inherit;
   background-color: transparent;
+  cursor: pointer;
 }
 
 img {
@@ -676,6 +680,25 @@ main .container .right form .input-box textarea:focus + .placeholder {
   top: 0;
   background-color: white;
   border: 2px solid black;
+  padding: 0.125rem 0.5rem;
+}
+main .container .right form .input-box select {
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  padding: 1rem;
+  border: 2px solid #111;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+main .container .right form .input-box select + .placeholder {
+  position: absolute;
+  left: 1rem;
+  font-size: 0.8rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  top: 0;
+  background-color: white;
+  border: 2px solid #111;
   padding: 0.125rem 0.5rem;
 }
 main .container .right form .input-box input:valid + .placeholder {
