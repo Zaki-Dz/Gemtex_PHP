@@ -1,10 +1,28 @@
+<?php
+
+	include_once '../php/inc/connection.inc.php';
+
+	session_start();
+
+	if (!isset($_SESSION['admin'])) {
+		header('location: ./');
+	}
+
+	$isConnected = false;
+
+	if ($_SESSION['admin']) {
+		$isConnected = true;
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>GemTex</title>
+		<title><?php echo $isConnected ? 'Admin' : 'GemTex'; ?></title>
 		<link rel="stylesheet" type="text/css" href="../css/inc/all.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/admin.css" />
 		<script src="../js/admin.js" defer></script>
@@ -18,14 +36,14 @@
 			<div class="bottom">
 				<nav>
 					<ul>
-						<a href="dashboard.html">
+						<a href="dashboard.php">
 							<li>
 								<i class="fa-solid fa-shapes"></i>
 								Dashboard
 							</li>
 						</a>
 
-						<a href="categories.html">
+						<a href="categories.php">
 							<li>
 								<i class="fa-solid fa-table-cells-large"></i>
 								Categories
@@ -39,25 +57,32 @@
 							</li>
 						</a>
 
-						<a href="messages.html">
+						<a href="messages.php">
 							<li>
 								<i class="fa-regular fa-message"></i>
 								Messages
 							</li>
 						</a>
 
-						<a href="partenaires.html">
+						<a href="partenaires.php">
 							<li>
 								<i class="fa-regular fa-handshake"></i>
 								Partenaires
+							</li>
+						</a>
+						
+						<a href="../">
+							<li>
+								<i class="fa-solid fa-arrow-left"></i>
+								Retour
 							</li>
 						</a>
 					</ul>
 				</nav>
 
 				<div class="logout">
-					<form>
-						<button type="submit">
+					<form action="../php/actions/logout.php" method="post">
+						<button type="submit" name="submit">
 							<i class="fa-solid fa-arrow-right-from-bracket"></i>Se deconnecter
 						</button>
 					</form>
@@ -95,59 +120,94 @@
 							<thead>
 								<th>#Id</th>
 								<th>Désignation</th>
+								<th>Category</th>
 								<th>Image</th>
-								<th colspan="2"></th>
+								<th></th>
 							</thead>
 
 							<tbody>
-								<tr>
-									<td>01</td>
-									<td>Chaussures</td>
-									<td>
-										<img src="../images/ronjers.png" alt="" />
-									</td>
-									<td>
-										<button class="edit">
-											<i class="fa-regular fa-pen-to-square"></i>
-										</button>
-									</td>
-									<td>
-										<button class="delete">
-											<i class="fa-regular fa-trash-can"></i>
-										</button>
-									</td>
-								</tr>
+								<?php
+								
+									$q = 'select * from produits';
+
+									$stmt = $pdo->query($q);
+
+									$i = 1;
+
+									while ($row = $stmt->fetch()) {?>
+									
+										<tr>
+											<td><?php echo $i; $i++ ?></td>
+
+											<td>
+												<?php echo ucfirst($row['libelle']) ?>
+											</td>
+
+											<td align="center">
+												<?php
+												
+													$qC = 'select * from categories where id = ?';
+
+													$stmtC = $pdo->prepare($qC);
+
+													$stmtC->execute([$row['categorie_id']]);
+
+													$cat = $stmtC->fetch();
+
+													echo ucfirst($cat['libelle']);
+												
+												?>
+											</td>
+
+											<td>
+												<img src="../images/<?php echo $row['image'] ?>" alt="" />
+											</td>
+
+											<td>
+												<a href="../php/actions/delete_produit.php?id=<?php echo $row['id'] ?>" class="delete">
+													<i class="fa-regular fa-trash-can"></i>
+												</a>
+											</td>
+										</tr>
+
+									<?php }?>
 							</tbody>
 						</table>
 					</div>
 
 					<div class="tab-content" data-id="2">
-						<form>
+						<form action="../php/actions/produit.php" method="post" enctype="multipart/form-data">
 							<div class="input-box">
-								<input type="text" required />
+								<input type="text" name="name" required />
 
 								<span class="placeholder">Désignation</span>
 							</div>
 
 							<div class="input-box">
 								<select name="category">
-									<option></option>
+									<?php
+									
+										$q = 'select * from categories';
 
-									<option>Visage</option>
+										$stmt = $pdo->query($q);
 
-									<option>Chaussures</option>
+										while ($row = $stmt->fetch()) {?>
 
-									<option>Vetements</option>
+											<option value="<?php echo $row['id'] ?>">
+												<?php echo $row['libelle'] ?>
+											</option>
+											
+										<?php }?>
 								</select>
 
 								<span class="placeholder">Choisire une categorie</span>
 							</div>
 
 							<div class="input-box">
-								<input type="file" required />
+								<input type="file" name="image" required />
 							</div>
 
-							<button>Ajouter</button>
+							<button type="submit" name="submit">Ajouter</button>
 						</form>
 					</div>
 				</div>

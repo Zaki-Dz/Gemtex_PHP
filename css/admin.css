@@ -382,6 +382,15 @@ main .bottom .tab-content table tbody tr td .edit {
 main .bottom .tab-content table tbody tr td .delete {
   color: red;
 }
+main .bottom .tab-content table tbody tr td.contact-info a {
+  display: block;
+}
+main .bottom .tab-content table tbody tr td.contact-info a:nth-child(1) {
+  margin-bottom: 0.5rem;
+}
+main .bottom .tab-content table tbody tr td.contact-info a:hover {
+  color: green;
+}
 main .bottom .tab-content form {
   display: flex;
   flex-direction: column;

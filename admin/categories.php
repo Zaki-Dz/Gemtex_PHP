@@ -1,10 +1,28 @@
+<?php
+
+include_once '../php/inc/connection.inc.php';
+
+	session_start();
+
+	if (!isset($_SESSION['admin'])) {
+		header('location: ./');
+	}
+
+	$isConnected = false;
+
+	if ($_SESSION['admin']) {
+		$isConnected = true;
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>GemTex</title>
+		<title><?php echo $isConnected ? 'Admin' : 'GemTex'; ?></title>
 		<link rel="stylesheet" type="text/css" href="../css/inc/all.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/admin.css" />
 		<script src="../js/admin.js" defer></script>
@@ -18,7 +36,7 @@
 			<div class="bottom">
 				<nav>
 					<ul>
-						<a href="dashboard.html">
+						<a href="dashboard.php">
 							<li>
 								<i class="fa-solid fa-shapes"></i>
 								Dashboard
@@ -32,32 +50,39 @@
 							</li>
 						</a>
 
-						<a href="produits.html">
+						<a href="produits.php">
 							<li>
 								<i class="fa-solid fa-list"></i>
 								Produits
 							</li>
 						</a>
 
-						<a href="messages.html">
+						<a href="messages.php">
 							<li>
 								<i class="fa-regular fa-message"></i>
 								Messages
 							</li>
 						</a>
 
-						<a href="partenaires.html">
+						<a href="partenaires.php">
 							<li>
 								<i class="fa-regular fa-handshake"></i>
 								Partenaires
+							</li>
+						</a>
+
+						<a href="../">
+							<li>
+								<i class="fa-solid fa-arrow-left"></i>
+								Retour
 							</li>
 						</a>
 					</ul>
 				</nav>
 
 				<div class="logout">
-					<form>
-						<button type="submit">
+					<form action="../php/actions/logout.php" method="post">
+						<button type="submit" name="submit">
 							<i class="fa-solid fa-arrow-right-from-bracket"></i>Se deconnecter
 						</button>
 					</form>
@@ -99,77 +124,47 @@
 							</thead>
 
 							<tbody>
-								<tr>
-									<td>01</td>
-									<td>Chaussures</td>
-									<td>
-										<button class="edit">
-											<i class="fa-regular fa-pen-to-square"></i>
-										</button>
-									</td>
-									<td>
-										<button class="delete">
-											<i class="fa-regular fa-trash-can"></i>
-										</button>
-									</td>
-								</tr>
+								<?php
+								
+									$q = 'select * from categories';
 
-								<tr>
-									<td>02</td>
-									<td>Visage</td>
-									<td>
-										<button class="edit">
-											<i class="fa-regular fa-pen-to-square"></i>
-										</button>
-									</td>
-									<td>
-										<button class="delete">
-											<i class="fa-regular fa-trash-can"></i>
-										</button>
-									</td>
-								</tr>
+									$stmt = $pdo->query($q);
 
-								<tr>
-									<td>03</td>
-									<td>Vetements</td>
-									<td>
-										<button class="edit">
-											<i class="fa-regular fa-pen-to-square"></i>
-										</button>
-									</td>
-									<td>
-										<button class="delete">
-											<i class="fa-regular fa-trash-can"></i>
-										</button>
-									</td>
-								</tr>
+									$i = 1;
 
-								<tr>
-									<td>04</td>
-									<td>Gants</td>
-									<td>
-										<button class="edit">
-											<i class="fa-regular fa-pen-to-square"></i>
-										</button>
-									</td>
-									<td>
-										<button class="delete">
-											<i class="fa-regular fa-trash-can"></i>
-										</button>
-									</td>
-								</tr>
+									while ($row = $stmt->fetch()) {
+										?>
+										<tr>
+											<td><?php echo $i; $i++ ?></td>
+											<td><?php echo ucfirst($row['libelle']) ?></td>
+											<td>
+												<a href="./mod_categories.php?id=<?php echo $row['id'] ?>" class="edit">
+													<i class="fa-regular fa-pen-to-square"></i>
+												</a>
+											</td>
+											<td>
+
+											<a href="../php/actions/delete_category.php?id=<?php echo $row['id'] ?>" class="delete">
+												<i class="fa-regular fa-trash-can"></i>
+											</a>
+													
+											</td>
+										</tr>
+									<?php }
+									
+								?>
 							</tbody>
 						</table>
 					</div>
 
 					<div class="tab-content" data-id="2">
-						<form>
+						<form action="../php/actions/category.php" method="post">
 							<div class="input-box">
-								<input type="text" required />
+								<input type="text" required name="name" />
 								<span class="placeholder">Nom de catagory</span>
 							</div>
 
-							<button>Ajouter</button>
+							<button type="submit" name="submit">Ajouter</button>
 						</form>
 					</div>
 				</div>

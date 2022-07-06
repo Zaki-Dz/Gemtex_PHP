@@ -373,6 +373,20 @@ main {
 						.delete {
 							color: red;
 						}
+
+						&.contact-info {
+							a {
+								display: block;
+
+								&:nth-child(1) {
+									margin-bottom: 0.5rem;
+								}
+
+								&:hover {
+									color: green;
+								}
+							}
+						}
 					}
 				}
 			}

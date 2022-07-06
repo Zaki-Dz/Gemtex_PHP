@@ -128,6 +128,10 @@ main .container .right form .input-box textarea:focus + .placeholder {
   border: 2px solid black;
   padding: 0.125rem 0.5rem;
 }
+main .container .right form .input-box input:focus + .placeholder.error,
+main .container .right form .input-box textarea:focus + .placeholder.error {
+  border-color: red;
+}
 main .container .right form .input-box select {
   background-color: rgba(255, 255, 255, 0.6666666667);
   padding: 1rem;
@@ -159,6 +163,9 @@ main .container .right form .input-box .placeholder {
   border: 2px solid transparent;
   transition: 0.3s;
   pointer-events: none;
+}
+main .container .right form .input-box .placeholder.error {
+  color: red;
 }
 main .container .right form .box {
   display: flex;

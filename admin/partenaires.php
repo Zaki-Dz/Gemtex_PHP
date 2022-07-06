@@ -1,10 +1,28 @@
+<?php
+
+	include_once '../php/inc/connection.inc.php';
+
+	session_start();
+
+	if (!isset($_SESSION['admin'])) {
+		header('location: ./');
+	}
+
+	$isConnected = false;
+
+	if ($_SESSION['admin']) {
+		$isConnected = true;
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>GemTex</title>
+		<title><?php echo $isConnected ? 'Admin' : 'GemTex'; ?></title>
 		<link rel="stylesheet" type="text/css" href="../css/inc/all.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/admin.css" />
 		<link
@@ -23,28 +41,28 @@
 			<div class="bottom">
 				<nav>
 					<ul>
-						<a href="dashboard.html">
+						<a href="dashboard.php">
 							<li>
 								<i class="fa-solid fa-shapes"></i>
 								Dashboard
 							</li>
 						</a>
 
-						<a href="categories.html">
+						<a href="categories.php">
 							<li>
 								<i class="fa-solid fa-table-cells-large"></i>
 								Categories
 							</li>
 						</a>
 
-						<a href="produits.html">
+						<a href="produits.php">
 							<li>
 								<i class="fa-solid fa-list"></i>
 								Produits
 							</li>
 						</a>
 
-						<a href="messages.html">
+						<a href="messages.php">
 							<li>
 								<i class="fa-regular fa-message"></i>
 								Messages
@@ -57,12 +75,19 @@
 								Partenaires
 							</li>
 						</a>
+
+						<a href="../">
+							<li>
+								<i class="fa-solid fa-arrow-left"></i>
+								Retour
+							</li>
+						</a>
 					</ul>
 				</nav>
 
 				<div class="logout">
-					<form>
-						<button type="submit">
+					<form action="../php/actions/logout.php" method="post">
+						<button type="submit" name="submit">
 							<i class="fa-solid fa-arrow-right-from-bracket"></i>Se deconnecter
 						</button>
 					</form>
@@ -102,45 +127,52 @@
 
 								<th>Partenaire</th>
 
-								<th colspan="2"></th>
+								<th></th>
 							</thead>
 
 							<tbody>
-								<tr>
-									<td>
-										<img src="../images/rovenlogos-safety-light.jpg" alt="" />
-									</td>
+								<?php
+								
+									$q = 'select * from partenaire';
 
-									<td>Charika</td>
+									$stmt = $pdo->query($q);
 
-									<td>
-										<button class="edit">
-											<i class="fa-regular fa-pen-to-square"></i>
-										</button>
-									</td>
+									while ($row = $stmt->fetch()) {
+										?>
+										
+										<tr>
+											<td>
+												<img src="../images/<?php echo $row['logo'] ?>" alt="" />
+											</td>
 
-									<td>
-										<button class="delete">
-											<i class="fa-regular fa-trash-can"></i>
-										</button>
-									</td>
-								</tr>
+											<td><?php echo ucfirst($row['titre']) ?></td>
+
+											<td>
+												<a href="../php/actions/delete_partenaire.php?id=<?php echo $row['id'] ?>&nom=<?php echo $row['logo'] ?>" class="delete">
+														<i class="fa-regular fa-trash-can"></i>
+												</a>
+											</td>
+										</tr>
+										
+										<?php
+									}
+								?>
 							</tbody>
 						</table>
 					</div>
 
 					<div class="tab-content" data-id="2">
-						<form>
-							<div class="input-box">
-								<input type="text" required />
+						<form action="../php/actions/partenaire.php" method="post" enctype="multipart/form-data">
+						<div class="input-box">
+								<input type="text" name="nom" required />
 								<span class="placeholder">Partenaire</span>
 							</div>
 
 							<div class="input-box">
-								<input type="file" required />
+								<input type="file" name="image" required />
 							</div>
 
-							<button>Ajouter</button>
+							<button type="submit" name="submit">Ajouter</button>
 						</form>
 					</div>
 				</div>

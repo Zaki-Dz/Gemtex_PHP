@@ -82,3 +82,29 @@
 		transform: rotateY(180deg);
 	}
 }
+
+.admin{
+	position: fixed;
+	left: 0;
+	top: 100px;
+	backdrop-filter: blur(0.25rem);
+	background-color: #fffa;
+	border: 2px solid $mainColor;
+	border-left: none;
+	padding: 1rem;
+	z-index: 1000;
+	transition: $mainTransition;
+	cursor: pointer;
+
+	&:hover{
+		padding-left: 1.5rem !important;
+	}
+
+	@include maxSm {
+		padding: 0.5rem;
+
+		&:hover {
+			padding-right: 0.5rem !important;
+		}
+	}
+}

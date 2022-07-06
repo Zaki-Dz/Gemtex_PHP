@@ -365,6 +365,11 @@ header .container nav ul a:hover::before {
 .produits .container .produits-container .produit:hover .name {
   bottom: 0;
 }
+.produits .empty {
+  max-width: 500px;
+  border: 2px solid;
+  margin-inline: auto;
+}
 
 .partenaires {
   background-color: white;
@@ -682,6 +687,10 @@ main .container .right form .input-box textarea:focus + .placeholder {
   border: 2px solid black;
   padding: 0.125rem 0.5rem;
 }
+main .container .right form .input-box input:focus + .placeholder.error,
+main .container .right form .input-box textarea:focus + .placeholder.error {
+  border-color: red;
+}
 main .container .right form .input-box select {
   background-color: rgba(255, 255, 255, 0.6666666667);
   padding: 1rem;
@@ -713,6 +722,9 @@ main .container .right form .input-box .placeholder {
   border: 2px solid transparent;
   transition: 0.3s;
   pointer-events: none;
+}
+main .container .right form .input-box .placeholder.error {
+  color: red;
 }
 main .container .right form .box {
   display: flex;
@@ -836,6 +848,32 @@ main .container .right form .box a:hover {
 }
 .top-btn i {
   transform: rotateY(180deg);
+}
+
+.admin {
+  position: fixed;
+  left: 0;
+  top: 100px;
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  border: 2px solid #111;
+  border-left: none;
+  padding: 1rem;
+  z-index: 1000;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.admin:hover {
+  padding-left: 1.5rem !important;
+}
+@media (max-width: 767px) {
+  .admin {
+    padding: 0.5rem;
+  }
+  .admin:hover {
+    padding-right: 0.5rem !important;
+  }
 }
 
 section {
